@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hatneichong Haolai – Full Stack Developer Intern</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f6f9; --surface:#ffffff; --ink:#14263b; --muted:#53657a; --line:#cdd7e1; --accent:#1f6fd1; --accent-ink:#ffffff;
+  --code-bg:#14263b; --code-ink:#cfe3ff;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1824; --surface:#15243a; --ink:#e8eff7; --muted:#9db0c4; --line:#27405f; --accent:#6fb0ff; --accent-ink:#0e1824;
+    --code-bg:#0a121c; --code-ink:#cfe3ff;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1824; --surface:#15243a; --ink:#e8eff7; --muted:#9db0c4; --line:#27405f; --accent:#6fb0ff; --accent-ink:#0e1824;
+  --code-bg:#0a121c; --code-ink:#cfe3ff;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.7 "Source Serif 4",Georgia,serif}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:60rem;margin:0 auto;padding:0 1.25rem}
+h1,h2,h3,.sans{font-family:"Space Grotesk",system-ui,sans-serif}
+nav{display:flex;gap:1.25rem;flex-wrap:wrap;padding:1.25rem 0;font-family:"Space Grotesk",system-ui,sans-serif;font-size:.95rem}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--accent)}
+nav .brand{margin-right:auto;color:var(--ink);font-weight:700}
+
+/* hero: a code editor showing the person as an object */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;align-items:center;padding:3rem 0 4rem}
+.hero h1{font-size:clamp(2.4rem,6vw,4rem);line-height:1.05;margin:0 0 .75rem;letter-spacing:-.02em}
+.hero p.role{font-family:"Space Grotesk",sans-serif;font-weight:500;color:var(--accent);font-size:1.2rem;margin:0 0 1rem}
+.hero p.lead{color:var(--muted);margin:0 0 1.5rem;max-width:34rem}
+.btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{font-family:"Space Grotesk",sans-serif;font-weight:500;padding:.7rem 1.2rem;border-radius:6px;text-decoration:none;border:2px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{color:var(--accent)}
+.code{background:var(--code-bg);color:var(--code-ink);border-radius:10px;padding:1.25rem 1.4rem;font:400 .92rem/1.75 ui-monospace,Menlo,Consolas,monospace;overflow-x:auto;box-shadow:0 12px 30px rgba(10,30,60,.18)}
+.code .dots{display:flex;gap:6px;margin-bottom:.9rem}
+.code .dots i{width:10px;height:10px;border-radius:50%;background:#3c5679;display:block}
+.code .k{color:#8fc1ff}.code .s{color:#a6e3b0}.code .c{color:#7e93ab}
+.cursor{display:inline-block;width:.55em;height:1.1em;background:#8fc1ff;vertical-align:text-bottom;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.cursor{animation:none}html{scroll-behavior:auto}}
+
+section{padding:3rem 0;border-top:1px solid var(--line)}
+section h2{font-size:1.7rem;margin:0 0 1.25rem;letter-spacing:-.01em}
+.about{max-width:42rem}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:1.1rem 1.25rem}
+.skill h3{margin:0 0 .6rem;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;padding:0;margin:0;list-style:none}
+.chips li{font-family:"Space Grotesk",sans-serif;font-size:.85rem;padding:.2rem .65rem;border:1px solid var(--line);border-radius:99px;background:var(--bg)}
+.project{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:8px;padding:1.5rem}
+.project h3{margin:0 0 .5rem;font-size:1.35rem}
+.project ul{margin:.75rem 0 1.25rem;padding-left:1.2rem;color:var(--muted)}
+.tl{display:grid;gap:1.25rem}
+.tl .item{display:grid;grid-template-columns:9rem 1fr;gap:1rem}
+.tl .when{font-family:"Space Grotesk",sans-serif;color:var(--muted);font-size:.95rem}
+.tl h3{margin:0;font-size:1.1rem}
+.tl p{margin:.2rem 0 0;color:var(--muted)}
+.contact ul{list-style:none;padding:0;margin:0;display:grid;gap:.6rem}
+.contact li{display:grid;grid-template-columns:6.5rem 1fr;gap:1rem}
+.contact .lab{font-family:"Space Grotesk",sans-serif;color:var(--muted)}
+.contact a,.contact span.v{overflow-wrap:anywhere}
+footer{padding:2rem 0 3rem;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;padding-top:1.5rem}
+  .tl .item{grid-template-columns:1fr;gap:.1rem}
+  .contact li{grid-template-columns:1fr;gap:0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav aria-label="Main">
+    <a class="brand" href="#top">Hatneichong Haolai</a>
+    <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+  </nav>
+
+  <header class="hero" id="top">
+    <div>
+      <h1>Hatneichong Haolai</h1>
+      <p class="role">Full Stack Developer Intern</p>
+      <p class="lead">I build interactive web applications with HTML, CSS, JavaScript, React.js, Node.js and Express.js, and I’m looking for an internship where I can learn from a team and ship real software.</p>
+      <div class="btns">
+        <a class="btn primary" href="#projects">See my project</a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="code" aria-label="Summary of skills as code">
+      <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+<span class="k">const</span> developer = {<br>
+&nbsp;&nbsp;name: <span class="s">"Hatneichong Haolai"</span>,<br>
+&nbsp;&nbsp;role: <span class="s">"Full Stack Intern"</span>,<br>
+&nbsp;&nbsp;frontend: [<span class="s">"HTML5"</span>, <span class="s">"CSS3"</span>, <span class="s">"JavaScript"</span>, <span class="s">"React.js"</span>],<br>
+&nbsp;&nbsp;backend: [<span class="s">"Node.js"</span>, <span class="s">"Express.js"</span>],<br>
+&nbsp;&nbsp;studying: <span class="s">"BCA, 3rd semester"</span>,<br>
+&nbsp;&nbsp;<span class="c">// open to internships</span><br>
+&nbsp;&nbsp;learning: <span class="s">"every day"</span><span class="cursor" aria-hidden="true"></span><br>
+};
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About me</h2>
+    <div class="about">
+      <p>I’m a motivated and enthusiastic Full Stack Developer intern with knowledge of both frontend and backend web development. I’m familiar with CRUD operations and with building interactive web applications.</p>
+      <p>I’m interested in building practical software and contributing to collaborative development teams. I want to apply what I know, gain industry experience and learn modern technologies on real-world projects.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill"><h3>Frontend</h3><ul class="chips"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>React.js</li></ul></div>
+      <div class="skill"><h3>Backend</h3><ul class="chips"><li>Node.js</li><li>Express.js</li></ul></div>
+      <div class="skill"><h3>Concepts</h3><ul class="chips"><li>CRUD operations</li><li>Interactive web apps</li></ul></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <article class="project">
+      <h3>Ask Gemini AI</h3>
+      <p>An AI-based project with an interface for interacting with AI.</p>
+      <ul>
+        <li>Built an interface where people can interact with an AI.</li>
+        <li>Shows my interest in developing AI-powered applications.</li>
+      </ul>
+      <a class="btn primary" href="https://github.com/hatneichong25-jpg/phase5" target="_blank" rel="noopener">View on GitHub</a>
+    </article>
+  </section>
+
+  <section id="experience">
+    <h2>Experience and education</h2>
+    <div class="tl">
+      <div class="item"><div class="when">Experience</div><div><h3>YFS</h3><p>Associated with YFS.</p></div></div>
+      <div class="item"><div class="when">Currently pursuing</div><div><h3>Bachelor of Computer Applications (BCA)</h3><p>Eternal University, Baru Sahib, 3rd semester</p></div></div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <ul>
+      <li><span class="lab">Email</span><a href="mailto:hatneichong25@navgurukul.org">hatneichong25@navgurukul.org</a></li>
+      <li><span class="lab">Phone</span><a href="tel:+916909143199">6909143199</a></li>
+      <li><span class="lab">GitHub</span><a href="https://github.com/hatneichong25-jpg/phase5" target="_blank" rel="noopener">github.com/hatneichong25-jpg/phase5</a></li>
+      <li><span class="lab">LinkedIn</span><a href="https://linkedin.com/in/hatneichong-haolai-a04755423" target="_blank" rel="noopener">linkedin.com/in/hatneichong-haolai-a04755423</a></li>
+      <li><span class="lab">Location</span><span class="v">India</span></li>
+    </ul>
+  </section>
+
+  <footer>© 2026 Hatneichong Haolai</footer>
+</div>
+</body>
+</html>
